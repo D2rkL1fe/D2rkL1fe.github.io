@@ -84,11 +84,12 @@ class Block {
 }
 
 class Enemy {
-    constructor(x, y, radius, speed, xv, yv) {
+    constructor(x, y, radius, speed, damage, xv, yv) {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.speed = speed;
+        this.damage = damage;
         this.xv = xv;
         this.yv = yv;
     }
@@ -120,7 +121,7 @@ function add_enemy(x, y, r, s, xv, yv) {
 }
 
 function init() { // start blocks
-    add_block(canvas.width / 4 - 100, canvas / 2 - 40, 200, 80);
+    add_block(canvas.width / 4 - 100, canvas.height / 2 - 40, 200, 80);
     add_block(canvas.width - canvas.width / 4 - 100, canvas.height / 2 - 40, 200, 80);
 }
 init();
@@ -128,7 +129,7 @@ init();
 function render_player() {
     ctx.beginPath();
     ctx.fillStyle = "blue";
-    ctx.fillRect(pPos.x, pPos.y, pWidth, pHeight);
+    ctx.fillRect(pPos.x, pPos.y, pSize.w, pSize.h);
     ctx.fill();
     ctx.closePath();
 }
